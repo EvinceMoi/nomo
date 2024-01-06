@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
+  "applicationId": "nomo",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "documentRoot": "/app/dist",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "tokenSecurity": "one-time",
+  "logging": {
+    "enabled": true,
+    "writeToLogFile": true
+  },
+  "nativeAllowList": [
+    "app.*",
+    "os.*",
+    "window.*",
+    "filesystem.*",
+    "debug.log"
+  ],
+  "modes": {
+    "window": {
+      "title": "nomo",
+      "width": 320,
+      "height": 480,
+      "minWidth": 320,
+      "minHeight": 480,
+      "fullScreen": false,
+      "alwaysOnTop": false,
+      "icon": "/app/assets/icon/nomo.png",
+      "enableInspector": true,
+      "borderless": false,
+      "maximize": false,
+      "hidden": false,
+      "resizable": false,
+      "exitProcessOnClose": false
+    }
+  },
+  "cli": {
+    "binaryName": "nomo",
+    "resourcesPath": "/app/dist",
+    "extensionsPath": "/extensions/",
+    "binaryVersion": "4.14.1",
+    "clientVersion": "3.13.0",
+    "frontendLibrary": {
+      "patchFile": "/app/index.html",
+      "devUrl": "http://127.0.0.1:5173",
+      "projectPath": "/app",
+      "initCommand": "yarn",
+      "devCommand": "BROWSER=none yarn dev",
+      "buildCommand": "yarn build"
+    }
+  }
+}
