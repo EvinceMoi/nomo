@@ -19,8 +19,8 @@ const config_dir = async () => {
   const app_name = 'nomo';
   const home = await Neutralino.os.getEnv('HOME');
   const path = [home, '.config', app_name].join('/');
-  Neutralino.filesystem.createDirectory(path).catch(_ => {
-    console.log('failed to create directory', path);
+  Neutralino.filesystem.createDirectory(path).catch(e => {
+    console.log(e.message);
   });
   return path;
 }
