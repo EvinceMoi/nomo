@@ -31,7 +31,7 @@ const get_config_path = async (fn: string) => {
 
 export const load_entrys = async () => {
   try {
-    const config_file = await get_config_path('nomo.yaml');
+    const config_file = await get_config_path('entrys.yaml');
     const contents = await Neutralino.filesystem.readFile(config_file);
     const entrys = parse(contents) as Entrys;
     const ret = Object.keys(entrys).map(id => {
@@ -60,7 +60,7 @@ export const save_entrys = async (entrys: EntryConfig[]) => {
   const yaml = stringify(conf);
 
   try {
-    const config_file = await get_config_path('nomo.yaml');
+    const config_file = await get_config_path('entrys.yaml');
     await Neutralino.filesystem.writeFile(config_file, yaml);
   } catch (e) {
     console.log('failed to save config, yaml:', yaml, 'error:', JSON.stringify(e));
